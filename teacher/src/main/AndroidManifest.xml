@@ -18,7 +18,7 @@
         </activity>
 
         <service
-            android:name=".BaseFirebaseInstanceIdService"
+            android:name="com.livetyping.core.CoreFirebaseInstanceIdService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -26,7 +26,7 @@
         </service>
 
         <service
-            android:name=".BaseFirebaseMessagingService"
+            android:name=".TeacherFCMService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

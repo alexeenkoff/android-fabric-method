@@ -1,14 +1,10 @@
-package com.livetyping.fabricmethod;
-
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
+package com.livetyping.core;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-public class BaseFirebaseMessagingService extends FirebaseMessagingService {
-    public BaseFirebaseMessagingService() {
+public class CoreFirebaseMessagingService extends FirebaseMessagingService {
+    public CoreFirebaseMessagingService() {
     }
 
     @Override
