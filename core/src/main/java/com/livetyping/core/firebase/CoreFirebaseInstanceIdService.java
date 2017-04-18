@@ -1,4 +1,4 @@
-package com.livetyping.core;
+package com.livetyping.core.firebase;
 
 
 import android.util.Log;

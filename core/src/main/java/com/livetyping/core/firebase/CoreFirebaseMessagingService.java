@@ -1,4 +1,4 @@
-package com.livetyping.core;
+package com.livetyping.core.firebase;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
