@@ -1,1 +1,1 @@
-include ':teacher', ':core'
+include ':teacher', ':core', ':parent'
