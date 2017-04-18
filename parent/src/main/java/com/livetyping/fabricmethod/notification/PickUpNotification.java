@@ -12,11 +12,11 @@ import com.livetyping.fabricmethod.R;
 
 import java.util.Map;
 
-public class BirthdayNotification extends CoreNotification {
+public class PickUpNotification extends CoreNotification {
 
-    static final String TYPE = "birthday";
+    static final String TYPE = "pick_up";
 
-    BirthdayNotification(RemoteMessage remoteMessage) {
+    public PickUpNotification(RemoteMessage remoteMessage) {
         super(remoteMessage);
     }
 
@@ -25,28 +25,29 @@ public class BirthdayNotification extends CoreNotification {
         Intent intent = new Intent(context, MainActivity.class)
                 .setPackage(context.getApplicationContext().getPackageName())
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra(CoreNotification.KEY_FROM_PUSH, getBirthdayInfo());
+        intent.putExtra(CoreNotification.KEY_FROM_PUSH, getPickUpText());
         return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    private static final String KEY_CHILD_COUNT = "children_count";
-    private static final String BIRTHDAY_STRING = "We will celebrate birthday today.";
-
-    private String getBirthdayInfo() {
+    private String getPickUpText() {
         Map<String, String> data = remoteMessage.getData();
-        if (data.containsKey(KEY_CHILD_COUNT)) {
-            return BIRTHDAY_STRING + " Count of children : " + data.get(KEY_CHILD_COUNT);
+        if (data.containsKey(KEY_PICKUP_TIME)) {
+            return PICKUP_STRING + " at " + data.containsKey(KEY_PICKUP_TIME);
         }
-        return BIRTHDAY_STRING;
+        return PICKUP_STRING;
     }
+
 
     @Override
     protected int largeIcon() {
-        return R.drawable.ic_birthday;
+        return R.drawable.ic_action_time;
     }
+
+    private static final String KEY_PICKUP_TIME = "time";
+    private static final String PICKUP_STRING = "don`t forget pick up your child";
 
     @Override
     protected String getNotificationTag() {
-        return getClass().getName();
+        return getClass().getName() + getPickUpText();
     }
 }

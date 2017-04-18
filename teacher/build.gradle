@@ -29,10 +29,6 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     compile project(path: ':core')
-
     compile 'com.google.firebase:firebase-messaging:10.0.1'
-
 }
-
-
 apply plugin: 'com.google.gms.google-services'
