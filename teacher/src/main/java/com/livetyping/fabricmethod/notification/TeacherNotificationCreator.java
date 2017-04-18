@@ -21,6 +21,8 @@ public class TeacherNotificationCreator extends CoreNotificationCreator {
         switch (messageType) {
             case NewChildNotification.TYPE:
                 return new NewChildNotification(remoteMessage);
+            case BirthdayNotification.TYPE:
+                return new BirthdayNotification(remoteMessage);
         }
         return null;
     }
