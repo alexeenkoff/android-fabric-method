@@ -20,7 +20,10 @@ public class ParentNotificationCreator extends CoreNotificationCreator {
         switch (messageType) {
             case PickUpNotification.TYPE:
                 return new PickUpNotification(remoteMessage);
+            case GradeNotification.TYPE:
+                return new GradeNotification(remoteMessage);
+            default:
+                return null;
         }
-        return null;
     }
 }
