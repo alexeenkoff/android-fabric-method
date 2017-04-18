@@ -13,13 +13,13 @@ import com.livetyping.fabricmethod.R;
 
 import java.util.Map;
 
-public class NewChildNotification extends CoreNotification {
+class NewChildNotification extends CoreNotification {
 
     static final String TYPE = "add_child";
 
     private static final String KEY_CHILD_NAME = "child_name";
 
-    public NewChildNotification(RemoteMessage remoteMessage) {
+    NewChildNotification(RemoteMessage remoteMessage) {
         super(remoteMessage);
     }
 

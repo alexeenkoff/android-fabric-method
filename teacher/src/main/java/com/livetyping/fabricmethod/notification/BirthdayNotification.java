@@ -12,7 +12,7 @@ import com.livetyping.fabricmethod.R;
 
 import java.util.Map;
 
-public class BirthdayNotification extends CoreNotification {
+class BirthdayNotification extends CoreNotification {
 
     static final String TYPE = "birthday";
 

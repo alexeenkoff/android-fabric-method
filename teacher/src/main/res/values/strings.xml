@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fabric method</string>
+    <string name="app_name">FabricMethod (teacher)</string>
 
     <!--Notifications-->
     <string name="add_child_notification_text_format">new child %1$s was added to your group</string>

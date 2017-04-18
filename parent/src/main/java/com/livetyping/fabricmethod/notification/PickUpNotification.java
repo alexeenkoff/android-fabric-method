@@ -12,11 +12,11 @@ import com.livetyping.fabricmethod.R;
 
 import java.util.Map;
 
-public class PickUpNotification extends CoreNotification {
+class PickUpNotification extends CoreNotification {
 
     static final String TYPE = "pick_up";
 
-    public PickUpNotification(RemoteMessage remoteMessage) {
+    PickUpNotification(RemoteMessage remoteMessage) {
         super(remoteMessage);
     }
 

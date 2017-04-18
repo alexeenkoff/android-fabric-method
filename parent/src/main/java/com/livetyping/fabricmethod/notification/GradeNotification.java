@@ -16,7 +16,7 @@ public class GradeNotification extends CoreNotification {
 
     static final String TYPE = "grade";
 
-    public GradeNotification(RemoteMessage remoteMessage) {
+    GradeNotification(RemoteMessage remoteMessage) {
         super(remoteMessage);
     }
 
