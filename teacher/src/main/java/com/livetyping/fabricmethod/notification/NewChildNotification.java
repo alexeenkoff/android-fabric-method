@@ -27,7 +27,7 @@ class NewChildNotification extends CoreNotification {
     protected PendingIntent configurePendingIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class)
                 .setPackage(context.getApplicationContext().getPackageName())
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(CoreNotification.KEY_FROM_PUSH, getAddChildInfo());
         return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
