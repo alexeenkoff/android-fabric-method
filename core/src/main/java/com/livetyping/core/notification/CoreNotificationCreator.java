@@ -77,29 +77,18 @@ public abstract class CoreNotificationCreator {
         return "";
     }
 
-    private static final int LARGE_ICON_HEIGHT_IN_DP = 24;
-    private static final int LARGE_ICON_WIDTH_IN_DP = 24;
-
     protected NotificationCompat.Builder builderFromPushNotification(Context context, CoreNotification notification) {
         Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), notification.largeIcon());
-        int lagreIconHeight = pxFromDp(context, LARGE_ICON_HEIGHT_IN_DP);
-        int lagreIconWidth = pxFromDp(context, LARGE_ICON_WIDTH_IN_DP);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(largeIcon, lagreIconWidth, lagreIconHeight, true);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setSmallIcon(SMALL_ICON_RES_ID)
                 .setAutoCancel(true)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setContentTitle(notification.getTitle())
                 .setContentText(notification.getContent())
-                .setLargeIcon(scaledBitmap);
+                .setLargeIcon(largeIcon);
         builder.getExtras().putString(KEY_NOTIFICATION_TAG, notification.getNotificationTag());
         builder.setContentIntent(notification.configurePendingIntent(context));
         return builder;
     }
-
-    private static int pxFromDp(Context context, int dp) {
-        return (int) (dp * context.getResources().getDisplayMetrics().density);
-    }
-
 }
 

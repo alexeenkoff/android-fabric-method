@@ -22,10 +22,11 @@ class BirthdayNotification extends CoreNotification {
 
     @Override
     protected PendingIntent configurePendingIntent(Context context) {
-        Intent intent = new Intent(context, MainActivity.class)
+        String birthdayInfo = getBirthdayInfo();
+        Intent intent = new Intent(birthdayInfo, null, context, MainActivity.class)
                 .setPackage(context.getApplicationContext().getPackageName())
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra(CoreNotification.KEY_FROM_PUSH, getBirthdayInfo());
+                .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(CoreNotification.KEY_FROM_PUSH, birthdayInfo);
         return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
