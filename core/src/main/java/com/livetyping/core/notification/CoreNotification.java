@@ -18,39 +18,35 @@ public abstract class CoreNotification {
     protected static final String STRING_EMPTY = "";
 
     protected RemoteMessage remoteMessage;
-    private String title;
-    private String content;
 
     public CoreNotification(RemoteMessage remoteMessage) {
         this.remoteMessage = remoteMessage;
-        setTitle(remoteMessage);
-        setContent(remoteMessage);
     }
 
-    protected void setTitle(RemoteMessage remoteMessage) {
+    protected String getTitleFromMessage() {
         Map<String, String> data = remoteMessage.getData();
         if (data.containsKey(KEY_TITLE)) {
-            title = data.get(KEY_TITLE);
+            return data.get(KEY_TITLE);
         } else {
-            title = STRING_EMPTY;
+            return STRING_EMPTY;
         }
     }
 
-    protected void setContent(RemoteMessage remoteMessage) {
+    protected String getContentFromMessage() {
         Map<String, String> data = remoteMessage.getData();
         if (data.containsKey(KEY_CONTENT)) {
-            content = data.get(KEY_CONTENT);
+            return data.get(KEY_CONTENT);
         } else {
-            content = STRING_EMPTY;
+            return STRING_EMPTY;
         }
     }
 
     public String getTitle() {
-        return title;
+        return getTitleFromMessage();
     }
 
     public String getContent() {
-        return content;
+        return getContentFromMessage();
     }
 
     protected abstract PendingIntent configurePendingIntent(Context context);
